@@ -14,13 +14,9 @@ struct ContentView: View {
             List {
                 ForEach($fruits, id: \.name) { $fruit in
                     HStack {
-                        if fruit.isSelected {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.orange)
-                        } else {
-                            Image(systemName: "checkmark")
-                                .hidden()
-                        }
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.orange)
+                            .opacity(fruit.isSelected ? 1 : 0)
                         Text(fruit.name)
                     }
                     .contentShape(Rectangle())
